@@ -10,12 +10,6 @@
     "format": "prettier src/ --write --ignore-unknown",
     "prepare": "husky install"
   },
-  "lint-staged": {
-    "src/**/*": [
-      "next lint",
-      "prettier --write --ignore-unknown"
-    ]
-  },
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
