@@ -6,7 +6,7 @@ import SenderName from './SenderName'
 
 export default function FormGroupAddLetter() {
   return (
-    <FormGroup >
+    <FormGroup>
       <IsIncoming />
       <ActionDate />
       <SenderName />
