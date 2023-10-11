@@ -1,5 +1,6 @@
 import { FormControlLabel } from '@mui/material'
 import { DatePicker } from '@mui/x-date-pickers'
+import dayjs from 'dayjs'
 import React from 'react'
 
 export default function ActionDate() {
@@ -10,6 +11,7 @@ export default function ActionDate() {
         <DatePicker
           format="YYYY-MM-DD"
           label="Action date"
+          defaultValue={dayjs()}
           slotProps={{
             textField: {
               helperText:
