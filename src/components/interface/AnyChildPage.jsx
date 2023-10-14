@@ -1,4 +1,4 @@
-import AnyPage from '@/components/AnyPage'
+import AnyPage from '@/components/interface/AnyPage'
 import { Button } from '@mui/material'
 
 export default function AnyChildPage({ children }) {

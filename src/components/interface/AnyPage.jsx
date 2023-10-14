@@ -1,4 +1,4 @@
-import ToggleTheme from '@/components/ToggleTheme'
+import ToggleTheme from '@/components/interface/ToggleTheme'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })

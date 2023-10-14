@@ -1,5 +1,5 @@
-import AnyPage from '@/components/AnyPage'
-import supabase from '@/utils/supabase'
+import AnyPage from '@/components/interface/AnyPage'
+import supabase from '@/db/supabase'
 import { Button } from '@mui/material'
 import { Inter } from 'next/font/google'
 
