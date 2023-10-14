@@ -9,4 +9,4 @@
 - Context for contacts from db added
 - FormJson from multiple select (recipient names) fixed
 
-## [Previous versions](/commits/main/CHANGELOG.md)
+## [Previous versions](../../commits/main/CHANGELOG.md)
