@@ -23,20 +23,25 @@ export default function SelectContacts({ name, label, multiple = false }) {
 
   return (
     <Fragment>
-      <label htmlFor={name}>{label}</label>
-      <br />
-      <select
-        multiple={multiple}
-        name={name}
-        value={selected}
-        onChange={(e) => setSelected(getSelectedOptions(e.target))}
-      >
-        {contacts.map((contact) => (
-          <option key={contact.contact_id} value={contact.contact_id}>
-            {contact.name}
-          </option>
-        ))}
-      </select>
+      <div className="flex justify-between">
+        <label className="pr-1" htmlFor={name}>
+          {label}
+        </label>
+        {/* <br /> */}
+        <select
+          className=""
+          multiple={multiple}
+          name={name}
+          value={selected}
+          onChange={(e) => setSelected(getSelectedOptions(e.target))}
+        >
+          {contacts.map((contact) => (
+            <option key={contact.contact_id} value={contact.contact_id}>
+              {contact.name}
+            </option>
+          ))}
+        </select>
+      </div>
     </Fragment>
   )
 }

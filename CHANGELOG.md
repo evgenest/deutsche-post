@@ -2,11 +2,9 @@
 
 ## Last version
 
-### 2023-10-14
+### 2023-10-15
 
-- Switched from MUI to classical interface
-- useFetching hook added (not in use anywhere yet)
-- Context for contacts from db added
-- FormJson from multiple select (recipient names) fixed
+- Dark mode fixed
+- Minor styles improvements
 
 ## [Previous versions](../../commits/main/CHANGELOG.md)

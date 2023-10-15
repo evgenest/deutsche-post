@@ -1,4 +1,4 @@
-import { Button, Divider, FormGroup } from '@mui/material'
+import { Button } from '@mui/material'
 import React from 'react'
 import IsIncoming from './IsIncoming'
 import ActionDate from './ActionDate'
@@ -23,6 +23,8 @@ export default function FormAddLetter() {
     // Or you can work with it as a plain object:
     const formJson = Object.fromEntries(formData.entries())
     formJson.recipientNames = formData.getAll('recipientNames')
+
+    // console.log(formJson)
   }
 
   return (
@@ -30,21 +32,28 @@ export default function FormAddLetter() {
     // тоже растягивались на всю ширину блока
     // и кнопки были друг под другом
     <ContactsProvider>
-      <form className="gap-2" onSubmit={handleSubmit} method="post">
-        <IsIncoming />
-        <br />
-        <ActionDate />
-        <br />
-        <SenderName />
-        <br />
-        <RecipientNames />
-        <br />
-        {/* <PdfFile />
+      <form onSubmit={handleSubmit} method="post">
+        <div className="flex flex-col space-y-4">
+          <div className="">
+            <IsIncoming />
+          </div>
+          <div className="">
+            <ActionDate />
+          </div>
+          <div className="">
+            <SenderName />
+          </div>
+          <div className="">
+            <RecipientNames />
+          </div>
+          {/* <PdfFile />
       <br/>
       <Divider sx={{ marginTop: 2, marginBottom: 2 }}>Comments</Divider>
       <Comments /> */}
-        <br />
-        <Button type="submit">Submit</Button>
+          <Button className="" type="submit">
+            Submit
+          </Button>
+        </div>
       </form>
     </ContactsProvider>
   )

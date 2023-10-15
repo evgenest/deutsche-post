@@ -28,8 +28,10 @@ export default function ActionDate() {
 
   return (
     <Fragment>
-      <label htmlFor="actionDate">Action date:</label>
-      <br />
+      <label className="pr-1" htmlFor="actionDate">
+        Action date:
+      </label>
+
       <input
         type="date"
         name="actionDate"
@@ -38,6 +40,10 @@ export default function ActionDate() {
           setActionDate(e.target.value)
         }}
       ></input>
+      <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+        When have received if the letter is incoming or when have sent if the
+        letter is outgoing.
+      </p>
     </Fragment>
   )
 }
