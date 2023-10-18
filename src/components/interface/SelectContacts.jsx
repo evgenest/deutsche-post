@@ -24,12 +24,11 @@ export default function SelectContacts({ name, label, multiple = false }) {
   return (
     <Fragment>
       <div className="flex justify-between">
-        <label className="pr-1" htmlFor={name}>
+        <label className="pr-1 leading-tight" htmlFor={name}>
           {label}
         </label>
         {/* <br /> */}
         <select
-          className=""
           multiple={multiple}
           name={name}
           value={selected}
