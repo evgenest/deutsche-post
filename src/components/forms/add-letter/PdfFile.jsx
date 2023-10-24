@@ -1,9 +1,5 @@
-import MuiAutocomplete from '@/components/mui/MuiAutocomplete'
-import supabase from '@/db/supabase'
-
-const { data: files, error } = await supabase.from('files').select('*')
-// if (error != null) console.log(error)
+import SelectFiles from '@/components/interface/SelectFiles'
 
 export default function PdfFile() {
-  return <MuiAutocomplete id="pdf-file" label="PDF File" options={files} />
+  return <SelectFiles name={'pdfFile'} label={'File Name:'}></SelectFiles>
 }

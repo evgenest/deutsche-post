@@ -28,22 +28,28 @@ export default function ActionDate() {
 
   return (
     <Fragment>
-      <label className="pr-1" htmlFor="actionDate">
-        Action date:
-      </label>
+      <div className="flex flex-row">
+        <div className="flex flex-col">
+          <label className="flex-grow pr-1" htmlFor="actionDate">
+            Action date:
+          </label>
 
-      <input
-        type="date"
-        name="actionDate"
-        value={actionDate}
-        onChange={(e) => {
-          setActionDate(e.target.value)
-        }}
-      ></input>
-      <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-        When have received if the letter is incoming or when have sent if the
-        letter is outgoing.
-      </p>
+          <input
+            className="form-input mt-1 block flex-shrink"
+            type="date"
+            name="actionDate"
+            value={actionDate}
+            onChange={(e) => {
+              setActionDate(e.target.value)
+            }}
+          ></input>
+        </div>
+
+        <p className="ml-4 mt-1 max-w-xs text-sm text-gray-500 dark:text-gray-400">
+          When have received if the letter is incoming or when have sent if the
+          letter is outgoing.
+        </p>
+      </div>
     </Fragment>
   )
 }

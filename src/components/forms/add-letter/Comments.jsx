@@ -11,7 +11,7 @@ export default function Comments() {
   }
 
   const commentsList = comments.map((comment, index) => (
-    <TextField
+    <textarea
       key={index}
       id={'comment-' + (index + 1)}
       label={'Comment #' + (index + 1)}

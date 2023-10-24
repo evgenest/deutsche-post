@@ -7,6 +7,8 @@ import RecipientNames from './RecipientNames'
 import PdfFile from './PdfFile'
 import Comments from './Comments'
 import { ContactsProvider } from '@/context/ContactsProvider'
+import { FilesProvider } from '@/context/FilesProvider'
+import SubmitButton from '@/components/ui/SubmitButton'
 
 export default function FormAddLetter() {
   const handleSubmit = (e) => {
@@ -32,29 +34,33 @@ export default function FormAddLetter() {
     // тоже растягивались на всю ширину блока
     // и кнопки были друг под другом
     <ContactsProvider>
-      <form onSubmit={handleSubmit} method="post">
-        <div className="flex flex-col space-y-4">
-          <div className="">
-            <IsIncoming />
+      <FilesProvider>
+        <form onSubmit={handleSubmit} method="post">
+          <div className="flex flex-col space-y-4">
+            <div className="">
+              <IsIncoming />
+            </div>
+            <div className="">
+              <ActionDate />
+            </div>
+            <div className="">
+              <SenderName />
+            </div>
+            <div className="">
+              <RecipientNames />
+            </div>
+            {/* <div className="">
+              <Comments />
+            </div>
+            <div className="">
+              <PdfFile />
+            </div> */}
+            <div className="flex flex-col items-center">
+              <SubmitButton />
+            </div>
           </div>
-          <div className="">
-            <ActionDate />
-          </div>
-          <div className="">
-            <SenderName />
-          </div>
-          <div className="">
-            <RecipientNames />
-          </div>
-          {/* <PdfFile />
-      <br/>
-      <Divider sx={{ marginTop: 2, marginBottom: 2 }}>Comments</Divider>
-      <Comments /> */}
-          <Button className="" type="submit">
-            Submit
-          </Button>
-        </div>
-      </form>
+        </form>
+      </FilesProvider>
     </ContactsProvider>
   )
 }
