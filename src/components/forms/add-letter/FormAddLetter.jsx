@@ -1,14 +1,9 @@
-import { Button } from '@mui/material'
 import React from 'react'
 import IsIncoming from './IsIncoming'
 import ActionDate from './ActionDate'
 import SenderName from './SenderName'
 import RecipientNames from './RecipientNames'
-import PdfFile from './PdfFile'
-import Comments from './Comments'
-import { ContactsProvider } from '@/context/ContactsProvider'
-import { FilesProvider } from '@/context/FilesProvider'
-import SubmitButton from '@/components/ui/SubmitButton'
+import SubmitButton from '@/components/interface/SubmitButton'
 
 export default function FormAddLetter() {
   const handleSubmit = (e) => {
@@ -33,34 +28,30 @@ export default function FormAddLetter() {
     // когда тут был FormGroup from '@mui/material', то поля для комментариев
     // тоже растягивались на всю ширину блока
     // и кнопки были друг под другом
-    <ContactsProvider>
-      <FilesProvider>
-        <form onSubmit={handleSubmit} method="post">
-          <div className="flex flex-col space-y-4">
-            <div className="">
-              <IsIncoming />
-            </div>
-            <div className="">
-              <ActionDate />
-            </div>
-            <div className="">
-              <SenderName />
-            </div>
-            <div className="">
-              <RecipientNames />
-            </div>
-            {/* <div className="">
-              <Comments />
-            </div>
-            <div className="">
-              <PdfFile />
-            </div> */}
-            <div className="flex flex-col items-center">
-              <SubmitButton />
-            </div>
-          </div>
-        </form>
-      </FilesProvider>
-    </ContactsProvider>
+    <form onSubmit={handleSubmit} method="post">
+      <div className="flex flex-col space-y-4">
+        <div className="">
+          <IsIncoming />
+        </div>
+        <div className="">
+          <ActionDate />
+        </div>
+        <div className="">
+          <SenderName />
+        </div>
+        <div className="">
+          <RecipientNames />
+        </div>
+        {/* <div className="">
+          <Comments />
+        </div> */}
+        {/* <div className="">
+          <PdfFile />
+        </div> */}
+        <div className="flex flex-col items-center">
+          <SubmitButton />
+        </div>
+      </div>
+    </form>
   )
 }

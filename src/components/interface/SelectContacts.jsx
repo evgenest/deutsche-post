@@ -1,9 +1,9 @@
-import { ContactsContext } from '@/context/ContactsProvider'
+import DbDataContext from '@/context/DbDataContext'
 import { Fragment, useMemo, useState, useContext } from 'react'
 
 export default function SelectContacts({ name, label, multiple = false }) {
   const [selected, setSelected] = useState(multiple ? [] : '')
-  const { contacts } = useContext(ContactsContext)
+  const { rows: contacts } = useContext(DbDataContext)
   const [filterText, setFilterText] = useState('')
 
   const filteredContacts = useMemo(() => {
