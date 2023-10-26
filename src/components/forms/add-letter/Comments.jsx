@@ -1,9 +1,9 @@
 import { Button, TextField, useTheme } from '@mui/material'
-import React, { Fragment } from 'react'
+import { useState, Fragment } from 'react'
 
 export default function Comments() {
   const theme = useTheme()
-  const [comments, setComments] = React.useState([''])
+  const [comments, setComments] = useState([''])
 
   const handleClick = (e) => {
     console.log(e.target.value)

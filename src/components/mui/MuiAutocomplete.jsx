@@ -1,5 +1,5 @@
 import { Autocomplete, CircularProgress, TextField } from '@mui/material'
-import React, { useMemo } from 'react'
+import { Fragment, useEffect, useState, useMemo } from 'react'
 
 function sleep(delay = 0) {
   return new Promise((resolve) => {
@@ -8,11 +8,11 @@ function sleep(delay = 0) {
 }
 
 export default function MuiAutocomplete(props) {
-  const [open, setOpen] = React.useState(false)
-  const [options, setOptions] = React.useState([])
+  const [open, setOpen] = useState(false)
+  const [options, setOptions] = useState([])
   const loading = open && options.length === 0
 
-  React.useEffect(() => {
+  useEffect(() => {
     let active = true
 
     if (!loading) {
@@ -32,17 +32,17 @@ export default function MuiAutocomplete(props) {
     }
   }, [loading, props.options])
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!open) {
       setOptions([])
     }
   }, [open])
 
   // VALUE LOGIC
-  const [value, setValue] = React.useState('')
-  const [inputValue, setInputValue] = React.useState('')
+  const [value, setValue] = useState('')
+  const [inputValue, setInputValue] = useState('')
 
-  React.useMemo(() => {
+  useMemo(() => {
     if (options.length) {
       setValue(options[0].name)
       setInputValue(options[0].name)
@@ -89,12 +89,12 @@ export default function MuiAutocomplete(props) {
           InputProps={{
             ...params.InputProps,
             endAdornment: (
-              <React.Fragment>
+              <Fragment>
                 {loading ? (
                   <CircularProgress color="inherit" size={20} />
                 ) : null}
                 {params.InputProps.endAdornment}
-              </React.Fragment>
+              </Fragment>
             ),
           }}
         />

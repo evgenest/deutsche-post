@@ -1,6 +1,5 @@
 import AnyChildPage from '@/components/interface/AnyChildPage'
 import supabase from '@/db/supabase'
-import React from 'react'
 
 const { data: getSessionData, error: getSessionError } =
   await supabase.auth.getSession()

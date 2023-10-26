@@ -1,6 +1,6 @@
 import { Checkbox, FormControlLabel } from '@mui/material'
 import { Input } from 'postcss'
-import React, { Fragment } from 'react'
+import { Fragment } from 'react'
 
 export default function IsIncoming() {
   return (
