@@ -1,8 +1,7 @@
-import { Button, TextField, useTheme } from '@mui/material'
+import MyButton from '@/components/interface/MyButton'
 import { useState, Fragment } from 'react'
 
 export default function Comments() {
-  const theme = useTheme()
   const [comments, setComments] = useState([''])
 
   const handleClick = (e) => {
@@ -24,14 +23,7 @@ export default function Comments() {
   return (
     <Fragment>
       {commentsList}
-      <Button
-        variant="contained"
-        // добавил, потому что сбивался цвет из-за @tailwind base
-        style={{ backgroundColor: theme.palette.primary.main }}
-        onClick={handleClick}
-      >
-        One more comment
-      </Button>
+      <MyButton onClick={handleClick}>One more comment</MyButton>
     </Fragment>
   )
 }
