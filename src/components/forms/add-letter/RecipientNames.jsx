@@ -1,6 +1,5 @@
 import SelectDbData from '@/components/interface/SelectDbData'
 import DbDataProvider from '@/context/DbDataProvider'
-import React from 'react'
 
 export default function RecipientNames() {
   return (
@@ -8,9 +7,9 @@ export default function RecipientNames() {
       <SelectDbData
         name={'recipientNames'}
         label={'Recipient Names:'}
-        multiple={true}
         titleField={'name'}
         valueField={'contact_id'}
+        multiple={true}
       ></SelectDbData>
     </DbDataProvider>
   )

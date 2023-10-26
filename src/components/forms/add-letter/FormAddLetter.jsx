@@ -4,6 +4,7 @@ import ActionDate from './ActionDate'
 import SenderName from './SenderName'
 import RecipientNames from './RecipientNames'
 import SubmitButton from '@/components/interface/SubmitButton'
+import PdfFile from './PdfFile'
 
 export default function FormAddLetter() {
   const handleSubmit = (e) => {
@@ -45,9 +46,9 @@ export default function FormAddLetter() {
         {/* <div className="">
           <Comments />
         </div> */}
-        {/* <div className="">
+        <div className="">
           <PdfFile />
-        </div> */}
+        </div>
         <div className="flex flex-col items-center">
           <SubmitButton />
         </div>

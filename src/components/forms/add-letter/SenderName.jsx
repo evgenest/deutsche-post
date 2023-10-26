@@ -1,6 +1,5 @@
 import SelectDbData from '@/components/interface/SelectDbData'
 import DbDataProvider from '@/context/DbDataProvider'
-import React from 'react'
 
 export default function SenderName() {
   return (
