@@ -1,25 +1,31 @@
 import DbDataContext from '@/context/DbDataContext'
 import { Fragment, useMemo, useState, useContext } from 'react'
 
-export default function SelectContacts({ name, label, multiple = false }) {
+export default function SelectDbData({
+  name,
+  label,
+  multiple = false,
+  titleField,
+  valueField,
+}) {
   const [selected, setSelected] = useState(multiple ? [] : '')
-  const { rows: contacts } = useContext(DbDataContext)
   const [filterText, setFilterText] = useState('')
+  const { rows: data, rowsError, tableName } = useContext(DbDataContext)
 
-  const filteredContacts = useMemo(() => {
-    return contacts.filter((contact) =>
-      contact.name.toLowerCase().includes(filterText.toLowerCase())
+  const filteredData = useMemo(() => {
+    return data.filter((item) =>
+      item[titleField].toLowerCase().includes(filterText.toLowerCase())
     )
-  }, [contacts, filterText])
+  }, [data, filterText, titleField])
 
-  // Set the first contact as selected by default
+  // Set the first item as selected by default
   // on the first page rendering
   useMemo(() => {
-    if (contacts.length) {
-      if (multiple) setSelected([contacts[0].contact_id])
-      else setSelected(contacts[0].contact_id)
+    if (filteredData.length) {
+      if (multiple) setSelected([filteredData[0][valueField]])
+      else setSelected(filteredData[0][valueField])
     }
-  }, [contacts, multiple])
+  }, [filteredData, multiple, valueField])
 
   const getSelectedOptions = (select) => {
     if (!multiple) return select.value
@@ -51,15 +57,15 @@ export default function SelectContacts({ name, label, multiple = false }) {
         value={selected}
         onChange={(e) => setSelected(getSelectedOptions(e.target))}
       >
-        {filteredContacts.map((contact) => (
-          <option key={contact.contact_id} value={contact.contact_id}>
-            {contact.name}
+        {filteredData.map((item) => (
+          <option key={item[valueField]} value={item[valueField]}>
+            {item[titleField]}
           </option>
         ))}
       </select>
       <input
         className="form-input mt-1 block w-full"
-        placeholder="Search contacts"
+        placeholder={'Search ' + tableName}
         type="text"
         value={filterText}
         onChange={(e) => setFilterText(e.target.value)}

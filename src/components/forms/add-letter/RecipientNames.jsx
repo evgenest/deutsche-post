@@ -1,15 +1,17 @@
-import SelectContacts from '@/components/interface/SelectContacts'
+import SelectDbData from '@/components/interface/SelectDbData'
 import DbDataProvider from '@/context/DbDataProvider'
 import React from 'react'
 
 export default function RecipientNames() {
   return (
     <DbDataProvider tableName={'contacts'}>
-      <SelectContacts
+      <SelectDbData
         name={'recipientNames'}
         label={'Recipient Names:'}
         multiple={true}
-      ></SelectContacts>
+        titleField={'name'}
+        valueField={'contact_id'}
+      ></SelectDbData>
     </DbDataProvider>
   )
 }
