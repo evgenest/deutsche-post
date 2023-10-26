@@ -1,10 +1,10 @@
-import React from 'react'
 import IsIncoming from './IsIncoming'
 import ActionDate from './ActionDate'
 import SenderName from './SenderName'
 import RecipientNames from './RecipientNames'
-import SubmitButton from '@/components/interface/SubmitButton'
+import MyButton from '@/components/interface/MyButton'
 import PdfFile from './PdfFile'
+import Comments from './Comments'
 
 export default function FormAddLetter() {
   const handleSubmit = (e) => {
@@ -43,14 +43,14 @@ export default function FormAddLetter() {
         <div className="">
           <RecipientNames />
         </div>
-        {/* <div className="">
+        <div className="">
           <Comments />
-        </div> */}
+        </div>
         <div className="">
           <PdfFile />
         </div>
         <div className="flex flex-col items-center">
-          <SubmitButton />
+          <MyButton type="submit">Submit</MyButton>
         </div>
       </div>
     </form>
