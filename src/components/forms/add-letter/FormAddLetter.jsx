@@ -2,7 +2,7 @@ import IsIncoming from './IsIncoming'
 import ActionDate from './ActionDate'
 import SenderName from './SenderName'
 import RecipientNames from './RecipientNames'
-import MyButton from '@/components/interface/MyButton'
+import TextButton from '@/components/interface/buttons/TextButton'
 import PdfFile from './PdfFile'
 import Comments from './Comments'
 
@@ -50,7 +50,7 @@ export default function FormAddLetter() {
           <PdfFile />
         </div>
         <div className="flex flex-col items-center">
-          <MyButton type="submit">Submit</MyButton>
+          <TextButton type="submit">Submit</TextButton>
         </div>
       </div>
     </form>

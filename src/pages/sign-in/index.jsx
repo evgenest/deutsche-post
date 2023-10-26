@@ -1,4 +1,4 @@
-import AnyChildPage from '@/components/interface/AnyChildPage'
+import AnyChildPage from '@/components/interface/any_page/AnyChildPage'
 import supabase from '@/db/supabase'
 
 const { data: getSessionData, error: getSessionError } =

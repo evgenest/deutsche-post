@@ -1,5 +1,5 @@
 import FormAddLetter from '@/components/forms/add-letter/FormAddLetter'
-import AnyChildPage from '@/components/interface/AnyChildPage'
+import AnyChildPage from '@/components/interface/any_page/AnyChildPage'
 
 export default function AddLetter() {
   return (

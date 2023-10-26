@@ -1,4 +1,4 @@
-import MyButton from '@/components/interface/MyButton'
+import AddButton from '@/components/interface/buttons/AddButton'
 import { useState, Fragment } from 'react'
 
 export default function Comments() {
@@ -23,7 +23,7 @@ export default function Comments() {
   return (
     <Fragment>
       {commentsList}
-      <MyButton onClick={handleClick}>One more comment</MyButton>
+      <AddButton onClick={handleClick} />
     </Fragment>
   )
 }
