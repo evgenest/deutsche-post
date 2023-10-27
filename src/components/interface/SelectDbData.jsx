@@ -64,7 +64,7 @@ export default function SelectDbData({
         ))}
       </select>
       <input
-        className="form-input mt-1 block w-full"
+        className="form-input mt-1 block w-full px-2.5 py-2"
         placeholder={'Search ' + tableName}
         type="text"
         value={filterText}
