@@ -29,7 +29,7 @@ export default function FormAddLetter() {
     // когда тут был FormGroup from '@mui/material', то поля для комментариев
     // тоже растягивались на всю ширину блока
     // и кнопки были друг под другом
-    <form onSubmit={handleSubmit} method="post">
+    <form onSubmit={handleSubmit} method="post" className="w-full max-w-xl">
       <div className="flex flex-col space-y-4">
         <div className="">
           <IsIncoming />
@@ -43,7 +43,7 @@ export default function FormAddLetter() {
         <div className="">
           <RecipientNames />
         </div>
-        <div className="">
+        <div className="w-full">
           <Comments />
         </div>
         <div className="">
