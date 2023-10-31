@@ -1,12 +1,15 @@
 import AddButton from '@/components/interface/buttons/AddButton'
-import { useState, Fragment } from 'react'
+import { useState } from 'react'
 
 export default function Comments() {
   const [comments, setComments] = useState([''])
 
   const handleClick = (e) => {
-    console.log(e.target.value)
-    setComments([...comments, e.target.value])
+    setComments(comments.concat(['']))
+  }
+
+  const handleBlur = (e, index) => {
+    setComments(comments.toSpliced(index, 1, e.target.value))
   }
 
   const commentsList = comments.map((comment, index) => (
@@ -15,10 +18,13 @@ export default function Comments() {
       placeholder="Your comment"
       key={index}
       id={'comment-' + (index + 1)}
+      name={'comment-' + (index + 1)}
       label={'Comment #' + (index + 1)}
-      multiline
+      multiline="true"
       rows={4}
       defaultValue={comment}
+      onChange={() => {}}
+      onBlur={(e) => handleBlur(e, index)}
     />
   ))
 
