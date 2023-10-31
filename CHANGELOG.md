@@ -2,9 +2,9 @@
 
 ## Last version
 
-### 2023-10-27
+### 2023-10-31
 
-- Added fields for files and comments
-- Styles improved
+- The comment box is now fully working
+- Fixed some minor bugs and styles
 
 ## [Previous versions](../../commits/main/CHANGELOG.md)
