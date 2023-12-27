@@ -1,3 +1,5 @@
+'use client'
+
 import IsIncoming from './IsIncoming'
 import ActionDate from './ActionDate'
 import SenderName from './SenderName'
@@ -5,31 +7,31 @@ import RecipientNames from './RecipientNames'
 import TextButton from '@/components/interface/buttons/TextButton'
 import PdfFile from './PdfFile'
 import Comments from './Comments'
+import SubmitHandler from '@/utils/SubmitHandler'
+import { add } from '@/server/FormsHandler'
 
 export default function FormAddLetter() {
   const handleSubmit = (e) => {
     // Prevent the browser from reloading the page
     e.preventDefault()
 
-    // Read the form data
-    const form = e.target
-    const formData = new FormData(form)
-
-    // You can pass formData as a fetch body directly:
-    // fetch('/api/add-letter', { method: form.method, body: formData })
-
-    // Or you can work with it as a plain object:
-    const formJson = Object.fromEntries(formData.entries())
-    formJson.recipientNames = formData.getAll('recipientNames')
-
-    // console.log(formJson)
+    SubmitHandler.sendFormJson(
+      SubmitHandler.buildFormJson(SubmitHandler.extractFormData(e)),
+      e.target.method,
+      '/api/add-letter'
+    )
   }
 
   return (
     // когда тут был FormGroup from '@mui/material', то поля для комментариев
     // тоже растягивались на всю ширину блока
     // и кнопки были друг под другом
-    <form onSubmit={handleSubmit} method="post" className="w-full max-w-xl">
+    <form
+      onSubmit={handleSubmit}
+      // action={add}
+      method="post"
+      className="w-full max-w-xl"
+    >
       <div className="flex flex-col space-y-4">
         <div className="">
           <IsIncoming />
