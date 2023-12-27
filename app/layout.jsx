@@ -2,6 +2,7 @@ import { Inter, Roboto_Mono } from 'next/font/google'
 
 // These styles apply to every route in the application
 import './globals.css'
+import { Providers } from './providers'
 
 export const metadata = {
   title: 'Deutsche Post App',
@@ -22,8 +23,14 @@ const roboto_mono = Roboto_Mono({
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${roboto_mono.variable}`}>
-      <body>{children}</body>
+    <html
+      lang="en"
+      className={`${inter.variable} ${roboto_mono.variable}`}
+      // suppressHydrationWarning
+    >
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   )
 }
