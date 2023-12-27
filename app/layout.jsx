@@ -1,5 +1,13 @@
 import { Inter, Roboto_Mono } from 'next/font/google'
 
+// These styles apply to every route in the application
+import './globals.css'
+
+export const metadata = {
+  title: 'Deutsche Post App',
+  description: 'Makes it easier to interact with a bunch of letters',
+}
+
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',

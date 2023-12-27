@@ -1,6 +1,5 @@
 'use client'
 
-import '@/styles/globals.css'
 import { LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { ThemeProvider } from 'next-themes'
