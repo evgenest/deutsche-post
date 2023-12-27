@@ -18,7 +18,7 @@ export default function Comments() {
       placeholder="Your comment"
       key={index}
       id={'comment-' + (index + 1)}
-      name={'comment-' + (index + 1)}
+      name="comments"
       label={'Comment #' + (index + 1)}
       multiline="true"
       rows={4}
