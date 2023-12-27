@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import DbDataContext from './DbDataContext'
-import ReadService from '@/db/ReadService'
+import { getAll } from '@/db/ReadService'
 
 const { Provider } = DbDataContext
 
@@ -16,7 +16,7 @@ const DbDataProvider = ({ tableName, children }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const [data, error] = await ReadService.getAll(tableName)
+      const [data, error] = await getAll(tableName)
       setRows(data)
       setRowsError(error)
     }

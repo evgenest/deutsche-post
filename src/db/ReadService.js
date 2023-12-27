@@ -1,18 +1,19 @@
-import supabase from './supabase'
+'use server'
 
-export default class ReadService {
-  static async getAll(table) {
-    // console.log('getAll')
+import { cookies } from 'next/headers'
+import { createClient } from './supabase'
 
-    const { data, error } = await supabase.from(table).select('*')
-    return [data, error]
-  }
+export async function getAll(table) {
+  // console.log('getAll')
 
-  static async getById(table, column, id) {
-    const { data, error } = await supabase
-      .from(table)
-      .select('*')
-      .eq(column, id)
-    return [data, error]
-  }
+  const cookieStore = cookies()
+  const supabase = createClient(cookieStore)
+
+  const { data, error } = await supabase.from(table).select('*')
+  return [data, error]
+}
+
+export async function getById(table, column, id) {
+  const { data, error } = await supabase.from(table).select('*').eq(column, id)
+  return [data, error]
 }
