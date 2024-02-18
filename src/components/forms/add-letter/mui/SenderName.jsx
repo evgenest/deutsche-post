@@ -1,5 +1,5 @@
 import MuiAutocomplete from '@/components/mui/MuiAutocomplete'
-import supabase from '@/db/supabase'
+import supabase from '@/utils/supabase/server'
 import { FormControlLabel } from '@mui/material'
 
 const { data: contacts, error } = await supabase.from('contacts').select('*')

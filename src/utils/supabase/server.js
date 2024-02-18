@@ -2,11 +2,13 @@
 
 import 'dotenv/config'
 import { createServerClient } from '@supabase/ssr'
+import { cookies } from 'next/headers'
+import { redirect } from 'next/navigation'
 
 export const createClient = (cookieStore) => {
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.NEXT_PUBLIC_SUPABASE_PUBLIC_ANON_KEY,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     {
       cookies: {
         get(name) {
@@ -33,4 +35,30 @@ export const createClient = (cookieStore) => {
       },
     }
   )
+}
+
+export const signIn = async () => {
+  const cookieStore = cookies()
+  const supabase = createClient(cookieStore)
+
+  try {
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: 'github',
+      options: {
+        redirectTo: `{process.env.NEXT_PUBLIC_SUPABASE_URL}/auth/v1/callback`,
+      },
+    })
+
+    console.log(data)
+
+    if (error) {
+      console.log(error)
+      throw error
+    } else {
+      return redirect('/')
+    }
+  } catch (error) {
+    console.error(error)
+    return redirect('/sign-in')
+  }
 }
